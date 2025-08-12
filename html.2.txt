@@ -1,0 +1,251 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capybara World</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: 'Quicksand', sans-serif;
+background-color: #d8c9b3;
+color: #333;
+scroll-behavior: smooth;
+height: 100vh;
+}
+
+/* Parallax effect for the header */
+header {
+background: url('https://images.unsplash.com/photo-1620325867502-221cfb5e7c86?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: rgb(99, 61, 43);
+padding: 0 20px;
+position: relative;
+background-attachment: fixed; /* Parallax effect */
+}
+
+header h1 {
+text-align: center;
+font-size: 4rem;
+text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+animation: fadeInUp 2s ease-out;
+}
+
+header p {
+font-size: 1.5rem;
+margin-top: 20px;
+animation: fadeInUp 3s ease-out;
+max-width: 800px;
+margin: 18px;
+}
+
+.cta-button {
+margin-top: 40px;
+background-color: #967a64;
+padding: 15px 30px;
+font-size: 1.2rem;
+color: white;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+transition: transform 0.3s ease, background-color 0.3s ease;
+text-decoration: none;
+}
+
+.cta-button:hover {
+background-color: #bea38a;
+transform: scale(1.1);
+}
+
+.scroll-down {
+position: absolute;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 1.2rem;
+color: white;
+cursor: pointer;
+animation: scrollAnim 2s infinite;
+}
+
+@keyframes
+ fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes
+ scrollAnim {
+0% {
+opacity: 1;
+transform: translateY(0);
+}
+50% {
+opacity: 0.5;
+transform: translateY(10px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Main Section Styling */
+section {
+padding: 60px 20px;
+max-width: 1200px;
+margin: auto;
+background-color: rgb(218, 196, 160);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+border-radius: 15px;
+margin-top: 10px;
+
+}
+
+section h2 {
+text-align: center;
+font-size: 2.8rem;
+margin-bottom: 40px;
+color: #624529;
+animation: fadeInUp 2s ease-out;
+}
+
+
+.description-content {
+color: #555;
+font-size: 1.2rem;
+line-height: 1.6;
+background: rgba(255, 255, 255, 0.9);
+padding: 15px;
+border-left: 5px solid #685444;
+margin-bottom: 23px;
+border-radius: 10px;
+max-height: 200px; /* Adjusted height */
+overflow-y: auto; /* Scrollable content */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a sleek look */
+}
+
+.highlight {
+color: #685444;
+font-weight: 700;
+}
+
+footer {
+background: #967762;
+color: white;
+text-align: center;
+padding: 20px 10px;
+font-size: 0.9rem;
+}
+
+.expectation-box {
+background-color: #fff;
+padding: 25px;
+margin: 105px;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+margin-left: auto;
+margin-right: auto;
+color: #555;
+font-size: 1.2rem;
+line-height: 1.6;
+animation: fadeInUp 3s ease-out;
+}
+
+.expectation-box ul {
+list-style-type: disc;
+margin-left: 20px;
+}
+
+.cta-button {
+margin-top: 25px;
+margin-bottom: 55px;
+}
+
+/* Media Queries for Responsiveness */
+@media
+ (max-width: 768px) {
+header h1 {
+font-size: 3rem;
+}
+
+header p {
+font-size: 1.3rem;
+}
+
+section h2 {
+font-size: 2rem;
+}
+
+.cta-button {
+font-size: 1rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>Welcome to Capybara World</h1>
+<p>The chillest, friendliest creatures on Earth! Their laid-back nature and bond with other species will captivate you.</p>
+<a href="" class="cta-button">Discover Why They're Awesome</a>
+<div class="description-content">
+<p>Ready to dive deeper into the magic of these charming, zen-like creatures? Click the button above to learn more about the wonderful world of capybaras and why they truly are the chillest animals on Earth!</p>
+</div>
+</header>
+<section>
+<h2>The Magic of Capybaras</h2>
+
+<div class="description-content">
+<p>Capybaras are more than just cute and cuddly—they’re socialites, adventurers, and zen masters. These friendly creatures don’t just chill with each other; they forge lasting friendships with a variety of species, from birds to monkeys to cats! Whether they’re basking in the sun or swimming through tranquil waters, capybaras exude calm and peace, making them one of nature’s most beloved animals.</p>
+</div>
+<div class="description-content">
+<p>The more you learn about capybaras, the more you realize just how fascinating they are. Did you know that they have highly social structures where everyone looks out for each other? Or that they are some of the best swimmers in the animal kingdom? Their playful nature and natural ability to connect with others—human and animal alike—make them stand out as one of the most unique creatures in the wild.</p>
+</div>
+
+<div class="description-content">
+<p>So, why are capybaras so special? <span class="highlight">Because they remind us to slow down, enjoy the little things in life, and always make room for friends.</span> Explore their world, and we promise you'll fall in love with them just like we have!</p>
+</div>
+
+<div class="description-content">
+<p>Ready to dive deeper into the magic of these charming, zen-like creatures? Click the button below to learn more about the wonderful world of capybaras and why they truly are the chillest animals on Earth!</p>
+</div>
+
+<!-- "What You Should Expect" Section -->
+<div class="expectation-box">
+<h2>What You Should Expect</h2>
+
+<p>Here in Capybara World, you're in for a delightful experience! Here's what you can expect as you navigate through our website:</p>
+<ul>
+<li><strong>A Deep Dive into Capybara Behavior:</strong> Learn how capybaras interact with other animals and humans, their social structures, and why they're considered zen masters of the animal kingdom.</li>
+<li><strong>Fun Facts:</strong> Discover little-known facts about capybaras, like their impressive swimming skills, their ability to make friends across species, and how they communicate!</li>
+<li><strong>Interactive Content:</strong> Participate in quizzes, view adorable photos and videos, and even take a virtual tour of a capybara habitat!</li>
+<li><strong>Inspiring Stories:</strong> Hear heartwarming tales of capybaras making bonds with other animals or helping people in surprising ways.</li>
+<li><strong>Tips on Capybara Care:</strong> For those interested in keeping capybaras as pets (where legally allowed), we'll share insights on how to provide them with a safe and loving environment.</li>
+</ul>
+</div>
+</section>
+<footer>
+<p> &copy; 2025 Th.proj </p>
+
+</footer>
+
+</body>
+</html>

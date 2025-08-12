@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capybara World</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: 'Quicksand', sans-serif;
+background-color: #f0f4f8;
+color: #333;
+scroll-behavior: smooth;
+}
+
+header {
+background:  url('https://images.unsplash.com/photo-1620325867502-221cfb5e7c86?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+height: 100vh;
+color: rgb(80, 48, 48);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 0 20px;
+}
+
+header h1 {
+font-size: 4rem;
+text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+animation: fadeInUp 2s ease-out;
+}
+
+header p {
+font-size: 1.5rem;
+margin-top: 20px;
+animation: fadeInUp 3s ease-out;
+}
+
+@keyframes
+ fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+section {
+padding: 60px 20px;
+max-width: 1200px;
+margin: auto;
+}
+
+section h2 {
+text-align: center;
+margin-bottom: 50px;
+font-size: 2.8rem;
+color: #2c3e50;
+}
+
+.cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+}
+
+.card {
+background: white;
+border-radius: 15px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+cursor: pointer;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-bottom: 3px solid #6bb07b;
+transition: filter 0.3s ease;
+}
+
+.card:hover img {
+filter: brightness(90%);
+}
+
+.card-content {
+padding: 20px;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.card-content h3 {
+margin-bottom: 15px;
+color: #2c3e50;
+font-weight: 700;
+font-size: 1.4rem;
+}
+
+.card-content p {
+font-size: 1rem;
+line-height: 1.5;
+color: #555;
+flex-grow: 1;
+}
+
+.return-button {
+display: block;
+margin-top: 40px;
+text-align: center;
+background-color: #ff5e00ff;
+color: white;
+padding: 12px 24px;
+border-radius: 5px;
+text-decoration: none;
+font-size: 16px;
+width: 120px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.return-button:hover {
+background-color: #0056b3;
+}
+
+footer {
+background: #7d654c;
+color: white;
+text-align: center;
+padding: 20px 10px;
+margin-top: 60px;
+font-size: 0.9rem;
+}
+
+@media
+ (max-width: 768px) {
+header h1 {
+font-size: 2.8rem;
+}
+
+header p {
+font-size: 1.2rem;
+}
+}
+</style>
+</head>
+<body>
+
+<section>
+<h2>Why Capybaras Are Awesome</h2>
+<div class="cards">
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Capybara_%28Hydrochoerus_hydrochaeris%29.JPG/640px-Capybara_%28Hydrochoerus_hydrochaeris%29.JPG" alt="Capybara in the wild"/>
+<div class="card-content">
+<h3>Super Social</h3>
+<p>Capybaras live in groups of 10–20, enjoying the company of family and friends, often bonding with other species!</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2021/03/25/20/38/capybara-6123663_1280.jpg" alt="Capybara swimming" />
+<div class="card-content">
+<h3>Excellent Swimmers</h3>
+<p>With webbed feet and a love for water, capybaras can swim and dive underwater for up to five minutes.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2020/07/15/00/30/capybara-5404086_1280.jpg" alt="Capybara chilling" />
+<div class="card-content">
+<h3>Zen Masters</h3>
+<p>Known for their calm demeanor, they are often seen relaxing and grooming each other to strengthen bonds.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2019/09/27/10/03/capybara-4502820_1280.jpg" alt="Capybara and birds" />
+<div class="card-content">
+<h3>Animal Friends</h3>
+<p>Capybaras are famous for friendships with animals like birds, monkeys, and even cats—no drama here!</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2017/06/04/16/20/capybara-2375946_1280.jpg" alt="Capybara eating grass" />
+<div class="card-content">
+<h3>Herbivores Extraordinaire</h3>
+<p>They mainly eat grasses and aquatic plants, and even practice coprophagy to digest food twice for maximum nutrients.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2016/04/01/12/11/capybara-1300601_1280.jpg" alt="Capybara relaxing in water" />
+<div class="card-content">
+<h3>Built for Water & Land</h3>
+<p>Capybaras are semi-aquatic and have eyes, ears, and nostrils positioned high on their heads for easy surface breathing.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2019/09/22/10/57/capybara-4490455_1280.jpg" alt="Capybara family" />
+<div class="card-content">
+<h3>Strong Family Bonds</h3>
+<p>The young stay close to their mothers and the group, learning important survival and social skills together.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2022/10/10/19/01/capybara-7523406_1280.jpg" alt="Capybara smiling" />
+<div class="card-content">
+<h3>Natural Smile</h3>
+<p>With their expressive faces and friendly personalities, capybaras easily win hearts worldwide.</p>
+</div>
+</div>
+<div class="card">
+
+<img src="https://cdn.pixabay.com/photo/2020/02/22/21/24/capybara-4879948_1280.jpg" alt="Capybara relaxing with water droplets" />
+<div class="card-content">
+<h3>Thermoregulators</h3>
+<p>Capybaras regulate their body temperature by soaking in water or mud, keeping cool during hot days.</p>
+</div>
+</div>
+</div>
+<a href="C:\Users\aldri\Desktop\test2.html" class="return-button">Return</a>
+</section>
+<footer>
+<p>&copy; <b>2025 TH.proj</b></p>
+
+</footer>
+</body>
+</html>
