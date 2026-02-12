@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HiddenMindanao</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background: linear-gradient(to bottom, #6b836a, #435f3f);
+    color:#222;
+}
+
+/* ================= NAVBAR ================= */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 70px;
+    background:#ece4da;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    transition:0.3s;
+}
+
+nav.scrolled{
+    background:#ece4da;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+    font-size:20px;
+    pointer-events:none;
+}
+
+.logo svg{
+    width:28px;
+    height:28px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    position:relative;
+}
+
+nav a.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:3px;
+    background:#386948;
+    border-radius:10px;
+}
+
+/* ================= HERO ================= */
+.hero{
+    display:flex;
+    justify-content:center;
+    padding:160px 20px 80px;
+}
+
+.hero-box{
+    background:white;
+    width:75%;
+    text-align:center;
+    padding:60px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+.hero-box h2{
+    font-size:46px;
+    margin-bottom:20px;
+    color:#595043;
+}
+
+.hero-box p{
+    font-size:17px;
+    margin-bottom:35px;
+    color:#555;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+}
+
+.btn{
+    padding:14px 30px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+    color:white;
+}
+
+.btn-start{ background:#74604d; }
+.btn-blog{ background:#6f8f78; }
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= SLIDER ================= */
+.slider-section{
+    padding:80px 0;
+    display:flex;
+    justify-content:center;
+}
+
+.slider-wrapper{
+    position:relative;
+    width:75%;
+    overflow:hidden;
+}
+
+.slider{
+    display:flex;
+    transition:transform 0.5s ease-in-out;
+}
+
+.slide{
+    min-width:100%;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.slide img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+}
+
+.slide-content{
+    padding:40px;
+    text-align:center;
+}
+
+.slide-content h2{
+    margin-bottom:15px;
+    color:#3e5a47;
+}
+
+.slide-content p{
+    color:#555;
+    line-height:1.6;
+}
+
+.prev, .next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#3e5a47;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+/* ================= BLOG ================= */
+.blog-preview{
+    width:75%;
+    margin:0 auto 100px;
+    padding:60px 0;
+    display:flex;
+    gap:25px;
+}
+
+.blog-card{
+    flex:1;
+    display:flex;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.blog-card:hover{
+    transform:translateY(-5px);
+}
+
+.blog-card img{
+    width:45%;
+    object-fit:cover;
+}
+
+.blog-card div{
+    padding:20px;
+}
+
+.blog-card h4{
+    margin-bottom:10px;
+    color:#3e5a47;
+}
+
+.blog-card p{
+    font-size:14px;
+    line-height:1.6;
+    color:#555;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#8e8a81;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+footer p{
+    margin-bottom:8px;
+    opacity:0.85;
+}
+
+footer small{
+    opacity:0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .blog-preview{
+        flex-direction:column;
+    }
+    .blog-card{
+        flex-direction:column;
+    }
+    .blog-card img{
+        width:100%;
+        height:200px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <div class="logo">
+        <!-- EXACT SVG -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.18596 18.1957C3.10451 18.329 3.20043 18.5 3.35661 18.5H20.1935C20.3379 18.5 20.4347 18.3516 20.3766 18.2195L15.1918 6.43601C15.1205 6.27377 14.8889 6.2777 14.8231 6.44228L12.5803 12.0492C12.5538 12.1155 12.5646 12.1909 12.6087 12.2471L14.2863 14.3822C14.6275 14.8165 14.5521 15.4451 14.1178 15.7863C13.6835 16.1275 13.0549 16.0521 12.7137 15.6178L8.41831 10.151C8.33217 10.0414 8.1631 10.0513 8.09039 10.1703L3.18596 18.1957Z" fill="#000000"></path> <path d="M14.2863 14.3822L14.6795 14.0733L14.6795 14.0733L14.2863 14.3822ZM14.1178 15.7863L13.8089 15.3932L13.8089 15.3932L14.1178 15.7863ZM12.7137 15.6178L13.1068 15.3089L13.1068 15.3089L12.7137 15.6178ZM12.5803 12.0492L12.1161 11.8635L12.5803 12.0492ZM12.6087 12.2471L12.2156 12.556L12.6087 12.2471ZM8.41831 10.151L8.81147 9.84208L8.41831 10.151ZM8.09039 10.1703L7.66375 9.90954L8.09039 10.1703ZM15.1918 6.43601L15.6495 6.23464L15.1918 6.43601ZM14.8231 6.44228L15.2873 6.62798L14.8231 6.44228ZM3.18596 18.1957L2.75931 17.935L3.18596 18.1957ZM20.3766 18.2195L19.9189 18.4208L20.3766 18.2195ZM20.1935 19H3.35661V18H20.1935V19ZM15.6495 6.23464L20.8342 18.0181L19.9189 18.4208L14.7342 6.63738L15.6495 6.23464ZM12.1161 11.8635L14.3588 6.25659L15.2873 6.62798L13.0445 12.2349L12.1161 11.8635ZM13.0019 11.9382L14.6795 14.0733L13.8932 14.6911L12.2156 12.556L13.0019 11.9382ZM14.6795 14.0733C15.1913 14.7247 15.0781 15.6677 14.4267 16.1795L13.8089 15.3932C14.026 15.2226 14.0638 14.9082 13.8932 14.6911L14.6795 14.0733ZM14.4267 16.1795C13.7753 16.6913 12.8323 16.5781 12.3205 15.9267L13.1068 15.3089C13.2774 15.526 13.5918 15.5638 13.8089 15.3932L14.4267 16.1795ZM12.3205 15.9267L8.02516 10.4599L8.81147 9.84208L13.1068 15.3089L12.3205 15.9267ZM2.75931 17.935L7.66375 9.90954L8.51704 10.431L3.6126 18.4564L2.75931 17.935ZM13.0445 12.2349C13.0843 12.1355 13.0681 12.0224 13.0019 11.9382L12.2156 12.556C12.0612 12.3595 12.0233 12.0956 12.1161 11.8635L13.0445 12.2349ZM8.02516 10.4599C8.15437 10.6244 8.40798 10.6094 8.51704 10.431L7.66375 9.90954C7.91822 9.49313 8.50997 9.45835 8.81147 9.84208L8.02516 10.4599ZM14.7342 6.63738C14.8413 6.88075 15.1886 6.87485 15.2873 6.62798L14.3588 6.25659C14.5893 5.68056 15.3996 5.66679 15.6495 6.23464L14.7342 6.63738ZM3.35661 19C2.80996 19 2.47426 18.4014 2.75931 17.935L3.6126 18.4564C3.73476 18.2565 3.59089 18 3.35661 18V19ZM20.1935 18C19.9769 18 19.8317 18.2225 19.9189 18.4208L20.8342 18.0181C21.0378 18.4807 20.6989 19 20.1935 19V18Z"></path> </g></svg>
+        </svg>
+        HiddenMindanao
+    </div>
+
+    <ul>
+        <li><a href="#hero" class="nav-link">HOME</a></li>
+        <li><a href="#explore-section" class="nav-link">EXPLORE</a></li>
+        <li><a href="#blog-section" class="nav-link">BLOG</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+    <div class="hero-box">
+        <h2>Explore the World Like Never Before</h2>
+        <p>Experience Mindanao’s hidden mountains, untouched beaches, and vibrant culture in one unforgettable journey.</p>
+        <div class="buttons">
+            <a href="#explore-section" class="btn btn-start">START YOUR JOURNEY</a>
+            <a href="#blog-section" class="btn btn-blog">READ BLOG</a>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDER -->
+<section id="explore-section" class="slider-section">
+    <div class="slider-wrapper">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://picsum.photos/1200/600?random=1">
+                <div class="slide-content">
+                    <h2>Majestic Mountains</h2>
+                    <p>Climb scenic peaks and experience breathtaking sunrise views.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1200/600?random=2">
+                <div class="slide-content">
+                    <h2>Hidden Beaches</h2>
+                    <p>Relax on peaceful shores with crystal clear waters.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1200/600?random=3">
+                <div class="slide-content">
+                    <h2>Urban Culture</h2>
+                    <p>Discover food, art, and nightlife across Mindanao.</p>
+                </div>
+            </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog-section" class="blog-preview">
+    <div class="blog-card">
+        <img src="https://picsum.photos/400/300?random=4">
+        <div>
+            <h4>Hidden Waterfalls</h4>
+            <p>Complete travel guide to secret waterfall locations and tips.</p>
+        </div>
+    </div>
+    <div class="blog-card">
+        <img src="https://picsum.photos/400/300?random=5">
+        <div>
+            <h4>Night City Adventures</h4>
+            <p>Explore night markets and glowing city views.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>HiddenMindanao © 2026 | All rights reserve. </p>
+    <small>Discover • Explore • Experience</small>
+</footer>
+
+<script>
+// SLIDER
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+document.querySelector('.next').onclick = () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+};
+
+document.querySelector('.prev').onclick = () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+};
+
+// SCROLL ACTIVE NAV
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+
+    let current = "";
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 200;
+        const height = section.clientHeight;
+
+        if(scrollY >= top && scrollY < top + height){
+            current = section.id;
+        }
+    });
+
+    navLinks.forEach(link=>{
+        link.classList.remove("active");
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
